@@ -26,11 +26,11 @@ const reducer = (state = initialState, action = {}) => {
 				total,
 			};
 		case 'GET_JOB_ACTION':
-			const {result} = action.payload;
+			const result = action.payload;
 			return {
 				...state,
 				loading: false,
-				job: [...result],
+				job: {...result},
 			};
 		case 'NOT_FOUND':
 			return {

@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import {jobAction} from "./actions/jobsAction";
 import styled from "styled-components/macro";
+import JobPostDetail from "./components/JobPostDetail";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -59,10 +60,9 @@ const StyledNav = styled.div`
   align-items: center;
 `;
 
-const Detail = (prop) => {
+const Detail = (props = {}) => {
   const {
-    page,
-    page_count,
+    job,
   } = useSelector((state) => {
     return state.jobsReducer;
   }) || [];
@@ -80,12 +80,9 @@ const Detail = (prop) => {
       <StyledTitle>
         <h1>Available Jobs from The Muse</h1>
       </StyledTitle>
-      <StyledNav>
-        <StyledLink>{`page ${page}/${page_count}`}</StyledLink>
-      </StyledNav>
     </StyledHeader>
     <StyledMain>
-      {id}
+      <JobPostDetail {...job} />
     </StyledMain>
     </div>
 

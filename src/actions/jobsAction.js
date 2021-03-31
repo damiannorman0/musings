@@ -28,6 +28,7 @@ const jobAction = (id) => {
 
 		try {
 			const data = await getJob(id);
+			debugger
 			dispatch({
 				type: 'GET_JOB_ACTION',
 				payload: {

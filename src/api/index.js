@@ -9,6 +9,7 @@ const getJobs = async () => {
 const getJob = async (id) => {
   const response = await fetch(`https://www.themuse.com/api/public/jobs/${id}`);
   const json = await response.json();
+  debugger
   return json;
 };
 
