@@ -1,12 +1,11 @@
 import React, {useEffect, useMemo} from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import {jobsAction} from "./actions/jobsAction";
+import { useParams } from 'react-router-dom';
 
-import './App.css';
 
-import styled from 'styled-components/macro';
-import JobPost from "./components/JobPost";
 
+import {jobAction} from "./actions/jobsAction";
+import styled from "styled-components/macro";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -60,46 +59,37 @@ const StyledNav = styled.div`
   align-items: center;
 `;
 
-
-function App() {
+const Detail = (prop) => {
   const {
-    jobs,
     page,
     page_count,
   } = useSelector((state) => {
     return state.jobsReducer;
   }) || [];
 
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(jobsAction());
-  }, [dispatch]);
-
-  //sort/filter util
-  const jobElements = useMemo(() => {
-    return jobs.map((item, index) => {
-      return (
-        <JobPost key={`post_${index}`} {...item} />
-      );
-    });
-  }, [jobs])
+    dispatch(jobAction(id));
+  }, [dispatch, id]);
 
   return (
     <div className="App">
-      <StyledHeader>
-        <StyledTitle>
-          <h1>Available Jobs from The Muse</h1>
-        </StyledTitle>
-        <StyledNav>
-          <StyledLink>{`page ${page}/${page_count}`}</StyledLink>
-        </StyledNav>
-      </StyledHeader>
-      <StyledMain>
-        {jobElements}
-      </StyledMain>
+    <StyledHeader>
+      <StyledTitle>
+        <h1>Available Jobs from The Muse</h1>
+      </StyledTitle>
+      <StyledNav>
+        <StyledLink>{`page ${page}/${page_count}`}</StyledLink>
+      </StyledNav>
+    </StyledHeader>
+    <StyledMain>
+      {id}
+    </StyledMain>
     </div>
-  );
-}
 
-export default App;
+  )
+};
+
+export default Detail;
