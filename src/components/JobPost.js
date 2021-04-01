@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components/macro";
-import {clean} from "../utils";
 
 import {Link} from 'react-router-dom';
 
@@ -47,10 +46,8 @@ const StlyedLink = styled(Link)`
 
 const JobPost = (props) => {
   const {
-    id, name = '', contents = '', locations = [], apply, hasApplied,
+    id, name = '', locations = [],
   } = props;
-
-  let cleansed = clean(contents);
 
   const locationElements = locations.map((location = {}, index) => {
     const {name = ''} = location;
@@ -58,9 +55,6 @@ const JobPost = (props) => {
       <StyledValue key={`location-${index}`}>{name}</StyledValue>
     )
   });
-
-  const onClick = () => {
-  };
 
   return (
     <StlyedLink to={`/detail/${id}`}>

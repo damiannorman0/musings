@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-  Router, Route, Switch,
+  Router, Route,
 } from 'react-router-dom';
 
 import {createBrowserHistory} from "history";
 
 import './index.css';
-import App from './App';
+import Landing from './Landing';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import configureStore from './store';
@@ -22,7 +22,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router history={history}>
-        <Route exact path="/" component={App}/>
+        <Route exact path="/" component={Landing}/>
         <Route path="/detail/:id" component={Detail}/>
       </Router>
     </Provider>

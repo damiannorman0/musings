@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import {debounce} from 'debounce';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -27,8 +28,12 @@ const Filter = (props) => {
         value = '',
       } = {}
     } = e;
-    filter(value.toLowerCase());
+
+    const debounced = debounce(filter, 200);
+    debounced(value.toLowerCase());
   };
+
+
 
   return (
     <StyledContainer>

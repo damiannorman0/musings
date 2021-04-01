@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {jobsAction} from "./actions/jobsAction";
 
@@ -17,7 +17,7 @@ const StyledMain = styled.main`
 `;
 
 
-function App() {
+function Landing() {
   const {
     jobs = [],
     page,
@@ -37,7 +37,7 @@ function App() {
     setFilter(filterParam);
   };
 
-  const jobElements = jobs.filter(item => {
+  const jobElements = jobs.filter((item) => {
     if (!filter) {
       return true;
     }
@@ -59,4 +59,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing;

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "styled-components/macro";
-import {clean} from "../utils";
-import {Link} from "react-router-dom";
 
 const StyledCard = styled.div`
   background-color: beige;
@@ -53,7 +51,7 @@ const StlyedLink = styled.a`
 
 const JobPostDetail = (props) => {
   const {
-    id, name = '',
+    name = '',
     contents = '',
     locations = [],
     refs: {
@@ -61,17 +59,12 @@ const JobPostDetail = (props) => {
     } = {},
   } = props;
 
-  let cleansed = clean(contents);
-
   const locationElements = locations.map((location = {}, index) => {
     const {name = ''} = location;
     return (
       <StyledValue key={`location-${index}`}>{name}</StyledValue>
     )
   });
-
-  const onClick = () =>{
-  };
 
   return (
     <StyledCard>
@@ -88,9 +81,6 @@ const JobPostDetail = (props) => {
       </StyledAttr>
       <StyledAttr>
         <StyledContent dangerouslySetInnerHTML={{__html: `${contents}`}} />
-      </StyledAttr>
-      <StyledAttr>
-        <StyledContent>{id}</StyledContent>
       </StyledAttr>
     </StyledCard>
   );
