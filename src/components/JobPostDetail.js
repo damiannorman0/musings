@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components/macro";
 import {clean} from "../utils";
+import {Link} from "react-router-dom";
 
 const StyledCard = styled.div`
   background-color: beige;
@@ -44,39 +45,20 @@ const StyledContent = styled.span`
   text-align: left;
 `;
 
-const StyledButton = styled.button`
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 25px;
-  border-radius: 10px;
-  border: none;
-  background-color: olive;
-  font-size: xx-large;
-  color: white;
-  position: absolute;
-  top: 0;
-  right: 0;
+const StlyedLink = styled.a`
+  text-decoration: none;
+  color: black;
   cursor: pointer;
 `;
 
-const StyledApplied = styled.div`
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 25px;
-  border-radius: 10px;
-  border: none;
-  background-color: green;
-  font-size: xx-large;
-  color: white;
-  position: absolute;
-  top: 0;
-  right: 0;
-`;
-
-
 const JobPostDetail = (props) => {
   const {
-    id, name = '', contents = '', locations = [], apply, hasApplied,
+    id, name = '',
+    contents = '',
+    locations = [],
+    refs: {
+      landing_page,
+    } = {},
   } = props;
 
   let cleansed = clean(contents);
@@ -94,7 +76,9 @@ const JobPostDetail = (props) => {
   return (
     <StyledCard>
       <StyledAttr>
-        <StyledValue>{name}</StyledValue>
+        <StlyedLink href={`${landing_page}`} title={`${landing_page}`}>
+          <StyledValue>{name}</StyledValue>
+        </StlyedLink>
       </StyledAttr>
       <StyledAttr>
         <span>Locations:</span>
