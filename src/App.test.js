@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Landing from './Landing';
+import Landing from './screens/Landing';
 
 test('renders learn react link', () => {
   render(<Landing />);

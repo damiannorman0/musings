@@ -11,7 +11,7 @@ const StyledCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -1px 5px 20px 5px rgba(0,0,0,0.3);
+  box-shadow: -1px 5px 20px 5px rgba(0, 0, 0, 0.3);
   font-size: larger;
   text-align: center;
   position: relative;
@@ -47,6 +47,12 @@ const StlyedLink = styled.a`
   text-decoration: none;
   color: black;
   cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const JobPostDetail = (props) => {
@@ -55,7 +61,7 @@ const JobPostDetail = (props) => {
     contents = '',
     locations = [],
     refs: {
-      landing_page,
+      landing_page = '',
     } = {},
   } = props;
 
@@ -67,22 +73,23 @@ const JobPostDetail = (props) => {
   });
 
   return (
-    <StyledCard>
-      <StyledAttr>
-        <StlyedLink href={`${landing_page}`} title={`${landing_page}`}>
+    <StlyedLink href={`${landing_page}`} title={`${landing_page}`}>
+      <StyledCard>
+        <StyledAttr>
           <StyledValue>{name}</StyledValue>
-        </StlyedLink>
-      </StyledAttr>
-      <StyledAttr>
-        <span>Locations:</span>
-        <>
-          <StyledValue>{locationElements}</StyledValue>
-        </>
-      </StyledAttr>
-      <StyledAttr>
-        <StyledContent dangerouslySetInnerHTML={{__html: `${contents}`}} />
-      </StyledAttr>
-    </StyledCard>
+        </StyledAttr>
+        <StyledAttr>
+          <span>Locations:</span>
+          <>
+            <StyledValue>{locationElements}</StyledValue>
+          </>
+        </StyledAttr>
+        <StyledAttr>
+          <StyledContent dangerouslySetInnerHTML={{__html: `${contents}`}}/>
+        </StyledAttr>
+      </StyledCard>
+    </StlyedLink>
+
   );
 }
 

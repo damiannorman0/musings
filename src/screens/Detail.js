@@ -3,10 +3,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
 
-import {jobAction} from "./actions/jobsAction";
+import {jobAction} from "../actions/jobsAction";
 import styled from "styled-components/macro";
-import JobPostDetail from "./components/JobPostDetail";
-import Header from "./components/Header";
+import JobPostDetail from "../components/JobPostDetail";
+import Header from "../components/Header";
 
 const StyledMain = styled.main`
   display: flex;

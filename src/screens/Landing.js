@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import {jobsAction} from "./actions/jobsAction";
+import {jobsAction} from "../actions/jobsAction";
 
-import './App.css';
+import '../App.css';
 
 import styled from 'styled-components/macro';
-import JobPost from "./components/JobPost";
-import Header from "./components/Header";
+import JobPost from "../components/JobPost";
+import Header from "../components/Header";
 
 const StyledMain = styled.main`
   display: flex;

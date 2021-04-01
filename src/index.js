@@ -8,11 +8,11 @@ import {
 import {createBrowserHistory} from "history";
 
 import './index.css';
-import Landing from './Landing';
+import Landing from './screens/Landing';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import configureStore from './store';
-import Detail from "./Detail";
+import Detail from "./screens/Detail";
 
 
 const history = createBrowserHistory();
